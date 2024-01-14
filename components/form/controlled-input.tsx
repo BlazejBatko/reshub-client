@@ -2,6 +2,7 @@ import React from "react"
 import { Control, Controller, FieldErrors } from "react-hook-form"
 
 import { Input } from "../ui/input"
+import { Textarea } from "../ui/textarea"
 
 type Props = {
   control: Control<any>
@@ -10,6 +11,7 @@ type Props = {
   placeholder?: string
   label?: string
   inputProps?: React.ComponentProps<typeof Input>
+  isTextArea?: boolean
 }
 
 const ControlledInput = ({
@@ -19,6 +21,7 @@ const ControlledInput = ({
   placeholder,
   errors,
   inputProps,
+  isTextArea,
 }: Props) => {
   return (
     <div>
@@ -27,15 +30,27 @@ const ControlledInput = ({
         name={name}
         control={control}
         render={({ field: { name, onChange, value } }) => (
-          <Input
-            name={name}
-            onChange={onChange}
-            value={value ?? ""}
-            placeholder={placeholder}
-            {...inputProps}
-          />
+          <>
+            {isTextArea ? (
+              <Textarea
+                // @ts-ignore
+                onChange={onChange}
+                value={value ?? ""}
+                placeholder={placeholder}
+                {...inputProps}
+              />
+            ) : (
+              <Input
+                onChange={onChange}
+                value={value ?? ""}
+                placeholder={placeholder}
+                {...inputProps}
+              />
+            )}
+          </>
         )}
       />
+      {/* @ts-ignore */}
       <span className="text-red-500">{errors[name]?.message}</span>
     </div>
   )

@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }: Props) {
   return (
     <div className="relative flex min-h-screen flex-col">
       <SiteHeader />
-      <div className="container flex-1">{children}</div>
+      <div className="container my-5 flex-1">{children}</div>
     </div>
   )
 }

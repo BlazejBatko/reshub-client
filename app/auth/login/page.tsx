@@ -1,16 +1,11 @@
 "use client"
 
-import React from "react"
 import Link from "next/link"
-import { LoginDto } from "@/types"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
 import useAuth from "@/hooks/useAuth"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import ControlledInput from "@/components/form/controlled-input"
 
 type Props = {}
@@ -29,9 +24,7 @@ const LoginIndex = (props: Props) => {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<LoginPayload>({
-    resolver: zodResolver(loginSchema),
-  })
+  } = useForm<LoginPayload>({})
 
   const onSubmit = (data: LoginPayload) => {
     auth.signin(data)

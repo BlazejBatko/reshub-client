@@ -1,4 +1,15 @@
-import { LucideProps, Moon, SunMedium, Twitter } from "lucide-react"
+import {
+  Frown,
+  LucideProps,
+  Mail,
+  Moon,
+  Phone,
+  Plus,
+  SunMedium,
+  Trash,
+  Twitter,
+  X,
+} from "lucide-react"
 
 export const Icons = {
   sun: SunMedium,
@@ -20,4 +31,10 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  clear: X,
+  trash: Trash,
+  plus: Plus,
+  email: Mail,
+  phone: Phone,
+  sad: Frown,
 }
